@@ -1,0 +1,311 @@
+@font-face {
+  font-family: Montserrat;
+  src: url(./assets/Montserrat-Bold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url(./assets/Montserrat-SemiBold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url(./assets/Montserrat-Regular.ttf);
+  font-weight: 400;
+}
+
+:root {
+  --background: #FFF;
+  --foreground: #000;
+  --accent: #AD2025;
+  --header-1-desktop: 48px;
+  --header-1-mobile: 30px;
+  --header-3-desktop: 20px;
+  --header-3-mobile: 20px;
+  --body-desktop: 15px;
+  --body-mobile: 10px;
+  --font-family: Montserrat;
+  --content-max-width: 1200px;
+  --facebook-blue: #4267B2;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  overflow-y: auto;
+}
+
+h1 {
+  font-size: var(--header-1-desktop);
+  font-weight: 700;
+}
+
+@media (max-width: 950px) {
+  h1 {
+    font-size: var(--header-1-mobile);
+  }
+}
+
+h3, nav > div > a {
+  font-size: var(--header-3-desktop);
+  font-weight: 600;
+}
+
+a {
+  cursor: pointer;
+}
+
+button {
+  border: 2px solid var(--accent);
+  font-size: var(--header-3-desktop);
+  font-weight: 600;
+  padding: 10px 15px 10px 15px;
+  transition: all 0.25s ease;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.unfilled {
+  background-color: var(--background);
+  color: var(--accent);
+}
+
+button.filled {
+  background-color: var(--accent);
+  color: var(--background);
+}
+
+nav {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+}
+
+nav > .logo {
+  padding-left: 30px;
+  justify-self: flex-start;
+  height: 45px;
+}
+
+#hamburger {
+  width: 50px;
+  margin-right: 50px;
+  display: none;
+  cursor: pointer;
+}
+
+nav > div {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav > div > a {
+  color: var(--accent);
+  vertical-align: middle;
+  margin-right: 50px;
+}
+
+@media (max-width: 950px) {
+  nav > div > a {
+    display: none;
+  }
+
+  #hamburger {
+    display: block;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+}
+
+main > .top {
+  width: 100vw;
+  height: 100vh;
+  background: url('./assets/bakery.jpg');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+main > .top > button {
+  margin-bottom: 30px;
+  flex-shrink: 1;
+}
+
+main > .selection {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+main > .selection > h1 {
+  text-align: center;
+  user-select: none;
+}
+
+main > .selection > div {
+  width: 100%;
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 340px);
+  column-gap: 60px;
+  row-gap: 100px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.card {
+  width: 340px;
+  cursor: pointer;
+}
+
+.card > .image-container {
+  width: 340px;
+  height: 243px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0px 4px 4px 0px hsla(0, 0%, 0%, 0.25);
+}
+
+.card > .image-container > * {
+  position: absolute;
+}
+
+.card > .image-container > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card > .image-container h2 {
+  font-size: 25px;
+  font-weight: 600;
+  color: var(--background);
+  user-select: none;
+}
+
+.card img {
+  width: inherit;
+  height: inherit;
+  transition: transform 0.2s;
+}
+
+.card:hover img {
+  transform: scale(1.2);
+}
+
+.card button {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.card:hover button {
+  background-color: var(--accent);
+  color: var(--background);
+}
+
+footer {
+  width: 100%;
+  background-color: hsla(210, 3%, 14%, 1);
+  padding: 100px 100px 30px 100px;
+  color: var(--background);
+}
+
+footer > .sitemap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+footer > .sitemap > div {
+  display: flex;
+  flex-direction: column;
+}
+
+footer h3 {
+  user-select: none;
+}
+
+footer > .sitemap > div > a {
+  font-size: var(--body-desktop);
+  margin-right: 60px;
+  margin-bottom: 20px;
+  transition: color 0.25s ease;
+}
+
+footer > .sitemap > div > a:hover {
+  color: var(--accent);
+}
+
+footer > .facebook {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+footer > .facebook img {
+  width: 50px;
+}
+
+footer .copyright {
+  width: 100%;
+  text-align: center;
+  font-size: var(--body-desktop);
+  font-weight: 400;
+  color: #CCC;
+  margin-top: 30px;
+}
+
+#mobile-nav {
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  display: none;
+}
+
+#mobile-nav a {
+  font-size: 25px;
+  font-weight: 600;
+  color: var(--background);
+  margin-bottom: 50px;
+}
+
+#mobile-nav .exit {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  right: 50px;
+  top: 50px;
+  cursor: pointer;
+}
+
